@@ -1,2 +1,27 @@
-this is my sample code for "Order Book" programming problem available at 
+This is my sample code for "Order Book" programming problem available at 
 http://www2.rgmadvisors.com/public/problems/orderbook/
+
+A solution to the original problem is located in text-input directory. 
+How to build:
+$ make clean; make release
+How to run (download pricer.in first from the website mentioned above):
+$ cat pricer.in | ./pricer 200 > pricer.out.200
+or
+$ ./pricer 200 max-messages pricer.in > pricer.out.200
+here max-messages is how many data lines will be read (-1 for reading until EOF)
+
+However, I've written a converter to transform incoming input data 
+to a binary form which can be read much faster. 
+
+So, binary-input contains the pricer_transform program and the pricer program
+which is modified for reading binary data
+
+To run, first 
+$make transform
+(which will build pricer_transform program and run it on pricer.in input file) 
+
+Then 
+$ make clean; make release
+How to run (download pricer.in first from the website mentioned above):
+$ ./pricer 200 -1 pricer.in.bin > pricer.out.200
+And this will run about 3 times faster than original text-input version

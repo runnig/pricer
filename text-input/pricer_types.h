@@ -5,6 +5,7 @@
 
 typedef uint64_t order_id_t;
 typedef uint32_t timestamp_t;
-typedef double   price_t;
+typedef double price_t;
+
 
 #endif
